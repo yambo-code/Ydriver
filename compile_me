@@ -3,11 +3,10 @@
 LIB="-D_MPI -D_CUDA -D_SCALAPACK -D_SLEPC -D_PAR_IO -D_HDF5_IO -D_HDF5_LIB"
 COMP=" -D_FORTRAN_US -D_DRIVER_TEST -D_C_US"
 CWD=`pwd`
-BIN="CLEAN";
+BIN="-D_example_driver";
 case "$1"
 in
-example) BIN="-D_example_driver";;
-yambo) BIN="-D_yambo_driver";;
+clean) BIN="CLEAN";;
 esac
 #
 if [ $BIN = "CLEAN" ]
@@ -20,21 +19,10 @@ then
  exit
 fi
 
-if [ $BIN = "-D_yambo_driver" ]
-then
- DIRS='interface lib options yambo/options'
-else
- DIRS='src/interface src/main src/options example/options'
-fi
+DIRS='src/interface src/main src/options example/options'
 
-if [ $BIN = "-D_yambo_driver" ]
-then
- INCS="-I$CWD/yambo/include/"
- LIBa="$CWD/../../libdriver.a"
-else
- INCS="-I$CWD/example/include/"
- LIBa="$CWD/lib/libdriver.a"
-fi
+INCS="-I$CWD/example/include/"
+LIBa="$CWD/lib/libdriver.a"
 
 for dir in $DIRS; do
  cd $dir
@@ -61,16 +49,11 @@ cd src/driver
 mpicc $COMP $LIB $OPT $BIN -c driver.c -I $CWD/src/headers $INCS
 cd $CWD
 
-if [ $BIN = "-D_example_driver" ]
-then
- cp src/interface/c_driver.mod include
- cp example/main.F main.f90
- mpif90  -c main.f90 -I./include
- rm -f driver.x
- mpif90 -o driver.x src/driver/driver.o main.o $LIBa -I./include $INCS
-else
- cp interface/c_driver.mod ../../../include
-fi
+cp src/interface/c_driver.mod include
+cp example/main.F main.f90
+mpif90  -c main.f90 -I./include
+rm -f driver.x
+mpif90 -o driver.x src/driver/driver.o main.o $LIBa -I./include $INCS
 
 #./driver.x -h
 #./driver.x -x -J jobA1,jobBBB2 -O ODIRONE -I TESTONE -C COMUNICONE -F input_file -nompi -noopenmp -setup -opt chi -Q
