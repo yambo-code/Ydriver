@@ -24,7 +24,7 @@ if [ $BIN = "-D_yambo_driver" ]
 then
  DIRS='interface lib options yambo/options'
 else
- DIRS='interface lib options example/options'
+ DIRS='src/interface src/main src/options example/options'
 fi
 
 if [ $BIN = "-D_yambo_driver" ]
@@ -41,30 +41,33 @@ for dir in $DIRS; do
  file_list=`find . -maxdepth 1 -type f | grep -E '\.c' |grep -v .swp`
  for file in $file_list; do
   echo $dir/$file
-  mpicc $COMP $LIB $BIN -c $file -I$CWD/include $INCS
+  mpicc $COMP $LIB $BIN -c $file -I$CWD/src/headers $INCS
  done
- if [ $dir = "interface" ]
+ if [ $dir = "src/interface" ]
  then
   file_list='mod_C_driver.F C_driver_transfer.F'
   for file in $file_list; do
    F_file=`echo $file | sed 's/.F/.f90/g'`
    cp $file $F_file
    echo $dir/$file
-   mpif90 $COMP $LIB $OPT $BIN -c $F_file -I$CWD/include  
+   mpif90 $COMP $LIB $OPT $BIN -c $F_file -I$CWD/src/headers  
   done
  fi
  find . -type f | grep -E '\.o|\.mod' | xargs ar -r $LIBa
  cd $CWD/
 done
 
-mpicc $COMP $LIB $OPT $BIN -c driver.c -I include $INCS
+cd src/driver
+mpicc $COMP $LIB $OPT $BIN -c driver.c -I $CWD/src/headers $INCS
+cd $CWD
 
 if [ $BIN = "-D_example_driver" ]
 then
+ cp src/interface/c_driver.mod include
  cp example/main.F main.f90
- mpif90  -c main.f90 -I interface -I include
+ mpif90  -c main.f90 -I./include
  rm -f driver.x
- mpif90 -o driver.x driver.o main.o $LIBa -I include $INCS
+ mpif90 -o driver.x src/driver/driver.o main.o $LIBa -I./include $INCS
 else
  cp interface/c_driver.mod ../../../include
 fi
