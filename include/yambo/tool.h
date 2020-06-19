@@ -20,59 +20,31 @@
   License along with this program; if not, write to the Free 
   Software Foundation, Inc., 59 Temple Place - Suite 330,Boston, 
   MA 02111-1307, USA or visit http://www.gnu.org/copyleft/gpl.txt.
+
+  tool & desc
+
 */
-/* 
- Tool drivers 
-*/
-/* YAMBO 
-*/
-#if defined _yambo || defined _yambo_driver
- #if defined _FORTRAN_US
-  int yambo_
- #else
-  int yambo
- #endif
+#if defined _yambo 
+ char *tool="yambo";
+ char *tool_desc="A shiny pot of fun and happiness [C.D.Hogan]";
 #endif
-/* YPP */
 #if defined _ypp
- #if defined _FORTRAN_US
-  int ypp_
- #else
-  int ypp
- #endif
+ char *tool="ypp";
+ char *tool_desc="Y(ambo) P(ost) P(rocessor)";
 #endif
-/* A2Y */
 #if defined _a2y
- #if defined _FORTRAN_US
-  int a2y_
- #else
-  int a2y
- #endif
+ char *tool="a2y";
+ char *tool_desc="A(binit) 2 Y(ambo) interface";
 #endif
-/* C2Y */
 #if defined _c2y
- #if defined _FORTRAN_US
-  int c2y_
- #else
-  int c2y
- #endif
+ char *tool="c2y";
+ char *tool_desc="C(pmd) 2 Y(ambo) interface";
 #endif
-/* P2Y */
 #if defined _p2y
- #if defined _FORTRAN_US
-  int p2y_
- #else
-  int p2y
- #endif
+ char *tool="p2y";
+ char *tool_desc="P(Wscf) 2 Y(ambo) interface";
 #endif
-/* E2Y */
 #if defined _e2y
- #if defined _FORTRAN_US
-  int e2y_
- #else
-  int e2y
- #endif
+ char *tool="e2y";
+ char *tool_desc="E(TSF) 2 Y(ambo) interface (0.6)";
 #endif
- (int *, int *,int *,int *,int *,int *,int *,int *,
-  char *string, char *in_file, char *in_dir, char *out_dir, char *com_dir, char *job,
-  int string_N, int in_file_N, int in_dir_N, int out_dir_N, int com_dir_N, int job_N);

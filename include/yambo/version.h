@@ -2,7 +2,7 @@
          Copyright (C) 2000-2020 the YAMBO team
                http://www.yambo-code.org
  
-  Authors (see AUTHORS file for details): DS
+  Authors (see AUTHORS file for details): AM
   
   This file is distributed under the terms of the GNU 
   General Public License. You can redistribute it and/or 
@@ -20,31 +20,11 @@
   License along with this program; if not, write to the Free 
   Software Foundation, Inc., 59 Temple Place - Suite 330,Boston, 
   MA 02111-1307, USA or visit http://www.gnu.org/copyleft/gpl.txt.
-
-  tool & desc
-
 */
-#if defined _yambo || defined _yambo_driver
- char *tool="yambo";
- char *tool_desc="A shiny pot of fun and happiness [C.D.Hogan]";
-#endif
-#if defined _ypp
- char *tool="ypp";
- char *tool_desc="Y(ambo) P(ost) P(rocessor)";
-#endif
-#if defined _a2y
- char *tool="a2y";
- char *tool_desc="A(binit) 2 Y(ambo) interface";
-#endif
-#if defined _c2y
- char *tool="c2y";
- char *tool_desc="C(pmd) 2 Y(ambo) interface";
-#endif
-#if defined _p2y
- char *tool="p2y";
- char *tool_desc="P(Wscf) 2 Y(ambo) interface";
-#endif
-#if defined _e2y
- char *tool="e2y";
- char *tool_desc="E(TSF) 2 Y(ambo) interface (0.6)";
-#endif
+
+#define YAMBO_VERSION 5
+#define YAMBO_SUBVERSION 0
+#define YAMBO_PATCHLEVEL 0
+#define YAMBO_REVISION 18566
+#define YAMBO_HASH "ec9c9e7e8"
+

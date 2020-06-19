@@ -28,7 +28,7 @@
 #include <fortran_driver.h>
 #include <kind.h>
 #include <driver.h>
-#if defined _yambo_driver
+#if defined _yambo
  #include <yambo_driver.h>
 #endif
 #if defined _MPI 
@@ -41,7 +41,7 @@ void launcher(int argc, char *argv[],int np, int pid, struct yambo_seed_struct y
  /* 
    Par Environments? Yes? => Return
  */
-#if defined _yambo_driver
+#if defined _yambo
  if (y.parenv_file !=NULL) 
  {
   int env_editor=load_environments(y.parenv_file);
@@ -71,7 +71,7 @@ void launcher(int argc, char *argv[],int np, int pid, struct yambo_seed_struct y
 #include <fortran_arguments.h>
  );
 #endif
-#if defined _yambo_driver
+#if defined _yambo
  /* 
    Running the Fortran YAMBO driver 
  ===========================================================================

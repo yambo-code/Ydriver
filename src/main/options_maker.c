@@ -24,7 +24,7 @@
 */
 #include <stdio.h>
 #include <kind.h>
-#if defined _yambo_driver
+#if defined _yambo
  #include <yambo_driver.h>
 #endif
 #if defined _example_driver
@@ -58,7 +58,7 @@ void options_maker(struct options_struct options[], int n_options)
  /* 
   Control(s)
  */
-#if defined _yambo_driver
+#if defined _yambo
  options_control(options,&i_opt);
  /* 
   Yambo
