@@ -26,4 +26,6 @@ arflags     = -ru
 cc          = mpicc
 cflags      = -O2 -D_C_US -D_FORTRAN_US 
 fc          = mpifort
+fpp         = gfortran -E -P -cpp
 fcflags     = -Wall -pedantic -fbounds-check -ffpe-trap=invalid,zero,overflow    
+f90suffix   = .f90
