@@ -27,7 +27,7 @@ else
  $(error Run ./configure first)
 endif
 #
-dopts=-D_MPI -D_CUDA -D_SCALAPACK -D_SLEPC -D_PAR_IO -D_HDF5_IO -D_HDF5_LIB -D_example_driver 
+dopts=-D_CUDA -D_SCALAPACK -D_SLEPC -D_PAR_IO -D_HDF5_IO -D_HDF5_LIB -D_example_driver 
 linclude=-I./example/include/ -I./src/headers -I./include
 lib_target=./lib/libdriver.a
 exe_target=bin/driver.x
@@ -61,10 +61,10 @@ define link
 endef
 define clean
  @find . \( -name '*.o' -o -name '*.f90' -o -name '*_source' -o -name '*.a' -o -name '*.mod' \
-        -o -name '*_cpp.f' -o -name 'ifc*' -o -name '__*' -o -name '*.s' -o -name 'penmp' -o -name '*.x' \) \
-        -type f -print | \
-         xargs rm -f
+        -o -name '*_cpp.f' -o -name 'ifc*' -o -name '__*' -o -name '*.s' -o -name 'penmp' -o -name '*.x' \)  -type f -print | xargs rm -fr
  @echo "[CLEAN] Objects ... done"
+ @rm -fr autom4te.cache config.log config.status config/defs.mk
+ @echo "[CLEAN] Config files ... done"
 endef
 #
 # Suffixes

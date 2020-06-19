@@ -21,11 +21,11 @@
 # Software Foundation, Inc., 59 Temple Place - Suite 330,Boston,
 # MA 02111-1307, USA or visit http://www.gnu.org/copyleft/gpl.txt.
 # 
-ar          = ar
-arflags     = -ru
-cc          = mpicc
-cflags      = -O2 -D_C_US -D_FORTRAN_US 
-fc          = mpifort
-fpp         = gfortran -E -P -cpp
-fcflags     = -Wall -pedantic -fbounds-check -ffpe-trap=invalid,zero,overflow    
-f90suffix   = .f90
+ar          = @AR@
+arflags     = @AR_FLAGS@
+cc          = @CC@
+cflags      = @CFLAGS@ 
+fpp         = @FPP@
+fc          = @FC@
+fcflags     = @FCFLAGS@ @FCMFLAG@ @OPENMPLIBS@ @CUDA_FLAGS@
+f90suffix   = @F90SUFFIX@
