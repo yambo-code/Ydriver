@@ -61,7 +61,7 @@ define link
 endef
 define clean
  @find . \( -name '*.o' -o -name '*.f90' -o -name '*_source' -o -name '*.a' -o -name '*.mod' \
-        -o -name '*_cpp.f' -o -name 'ifc*' -o -name '__*' -o -name '*.s' -o -name 'penmp' -o -name '*.x' \)  -type f -print | xargs rm -fr
+        -o -name '*_cpp.f' -o -name 'ifc*' -o -name '__*' -o -name '*.s' -o -name 'penmp' -o -name '*.x' -o -name 'version.h' \)  -type f -print | xargs rm -fr
  @echo "[CLEAN] Objects ... done"
  @rm -fr autom4te.cache config.log config.status config/defs.mk
  @echo "[CLEAN] Config files ... done"
