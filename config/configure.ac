@@ -21,7 +21,12 @@
 # Software Foundation, Inc., 59 Temple Place - Suite 330,Boston,
 # MA 02111-1307, USA or visit http://www.gnu.org/copyleft/gpl.txt.
 #
+AC_INIT(Yambo Driver Library, yambo@yambo-code.org)
+#
 m4_include([config/version.m4])
+#
+AC_MSG_CHECKING(version)
+AC_MSG_RESULT($YDRI_VERSION.$YDRI_SUBVERSION.$YDRI_PATCHLEVEL)
 #
 AC_CONFIG_AUX_DIR(config)
 #
@@ -81,5 +86,5 @@ ACX_FPP
 # ============================================================================
 # Output
 AC_LANG_PUSH(Fortran)
-AC_CONFIG_FILES([config/defs.mk])
+AC_CONFIG_FILES([config/defs.mk example/include/version.h])
 AC_OUTPUT
