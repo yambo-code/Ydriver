@@ -21,7 +21,7 @@
 # Software Foundation, Inc., 59 Temple Place - Suite 330,Boston,
 # MA 02111-1307, USA or visit http://www.gnu.org/copyleft/gpl.txt.
 #
-AC_INIT(Yambo Driver Library, 0.1.0 r.XXX h.XXX, yambo@yambo-code.org)
+m4_include([config/version.m4])
 #
 AC_CONFIG_AUX_DIR(config)
 #
