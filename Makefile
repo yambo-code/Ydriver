@@ -28,7 +28,7 @@ else
 endif
 #
 dopts=-D_CUDA -D_SCALAPACK -D_SLEPC -D_PAR_IO -D_HDF5_IO -D_HDF5_LIB -D_example_driver 
-linclude=-I./example/include/ -I./src/headers -I./include
+linclude=-I./example/include/ -I./include
 lib_target=./lib/libdriver.a
 exe_target=bin/driver.x
 #
