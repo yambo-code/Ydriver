@@ -33,7 +33,7 @@ int use_me(struct options_struct options[], struct tool_struct t, int i_opt)
  char *pch,str[100];
  if (options[i_opt].short_desc==NULL) return 0;
  strcpy(str,options[i_opt].bin);
- pch = strtok (str," ");
+ pch = strtok(str," ");
  while (pch != NULL)
  {
    if (strcmp(pch,t.tool)==0) return 1;
