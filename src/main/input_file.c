@@ -43,6 +43,7 @@ void input_file(struct yambo_seed_struct y,struct tool_struct t,int *use_editor)
  strcpy(edit_line,t.editor);
  strcpy(file_name,y.in_file);
  if (y.parenv_file !=NULL) {strcpy(file_name,y.parenv_file);};
+ strncat(edit_line," ",1);
  strncat(edit_line,file_name,strlen(file_name));
 #if defined _yambo || defined _ypp 
  if (*use_editor == 1 && ttd>0 && strstr(t.editor,"none ")==0)
