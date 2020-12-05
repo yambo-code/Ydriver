@@ -58,7 +58,7 @@ void options_maker(struct options_struct options[], int n_options)
  /* 
   Control(s)
  */
-#if defined _yambo || defined _ypp || defined _a2y || defined _p2y || defined _c2y || defined _e2y
+#if defined _yambo || defined _ypp || defined _a2y || defined _p2y || defined _c2y || defined _e2y || defined _eph2y
  options_control(options,&i_opt);
  /* 
   Yambo
