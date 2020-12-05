@@ -126,6 +126,15 @@ void launcher(int argc, char *argv[],int np, int pid, struct yambo_seed_struct y
 #include <fortran_arguments.h>
  );
 #endif
+#if defined _eph2y
+ /* 
+   Running the Fortran eph2y driver 
+ ===========================================================================
+ */
+ F90_FUNC(eph2y)(
+#include <fortran_arguments.h>
+ );
+#endif
  /* 
    Input file edit ?
  ===========================================================================
