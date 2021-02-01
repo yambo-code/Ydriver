@@ -52,34 +52,16 @@ struct tool_struct tool_init( )
 #if defined _YPP_ELPH || defined _ELPH
  pj="ph";
 #endif
-#if defined _YPP_RT 
+#if defined _YPP_RT || defined _RT
  pj="rt";
 #endif
-#if (defined _RT && defined _ELPH) || (defined _YPP_RT && defined _YPP_ELPH)
- pj="rt";
-#endif
-#if defined _YPP_SC || _SC
+#if defined _YPP_SC || defined _SC
  pj="sc";
 #endif
-#if defined _YPP_NL 
+#if defined _YPP_NL || defined _NL
  pj="nl";
 #endif
-#if (defined _NL && defined _RT && defined _ELPH) ||  (defined _YPP_NL && defined _YPP_RT && defined _YPP_ELPH)
- pj="nl";
-#endif
-#if (defined _MAGNETIC && defined _SC) || (defined _YPP_MAGNETIC && defined _YPP_SC)
- pj="magnetic";
-#endif
-#if defined _ELECTRIC && defined _SC
- pj="electric";
-#endif
-#if defined _KERR && defined _RT && defined _ELPH
- pj="kerr";
-#endif
-#if defined _PL && defined _RT && defined _SC && defined _ELPH
- pj="pl";
-#endif
-#if defined _QED && defined _RT && defined _ELPH
+#if defined _QED
  pj="qed";
 #endif
 
