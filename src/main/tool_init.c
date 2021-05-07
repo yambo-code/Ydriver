@@ -62,7 +62,7 @@ struct tool_struct tool_init( )
  pj="nl";
 #endif
 #if defined _YPP_DEFECTS || defined _DEFECTS
- pj="nl";
+ pj="df";
 #endif
 #if defined _QED
  pj="qed";
