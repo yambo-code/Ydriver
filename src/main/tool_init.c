@@ -61,6 +61,9 @@ struct tool_struct tool_init( )
 #if defined _YPP_NL || defined _NL
  pj="nl";
 #endif
+#if defined _YPP_DF || defined _DF
+ pj="nl";
+#endif
 #if defined _QED
  pj="qed";
 #endif
