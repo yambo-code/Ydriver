@@ -34,6 +34,16 @@
  #include <editor.h>
 #endif
 
+/*
+ AM 29/7/2021
+
+ This source is project dependent via tool.h. In order to properly compile it, then,
+ I need to add fictiuous pre-compiler options
+
+*/
+#if defined _p2y || defined _a2y || defined _c2y || defined _2y
+#endif
+
 struct tool_struct tool_init( )
 {
  tool_struct t;
