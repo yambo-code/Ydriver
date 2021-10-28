@@ -28,7 +28,7 @@
 #include <fortran_driver.h>
 #include <kind.h>
 #include <driver.h>
-#if defined _yambo
+#if defined _yambo || defined _ypp || defined _a2y || defined _p2y
  #include <yambo_driver.h>
 #endif
 #if defined _MPI 
