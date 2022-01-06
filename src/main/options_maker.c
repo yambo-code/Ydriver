@@ -36,11 +36,13 @@
 void options_maker(struct options_struct options[], int n_options)
 {
  int i_opt,dummy,i;
+ int max_long_desc=20;
+
  for(i_opt=0;i_opt<n_options;i_opt++) {
   options[i_opt].long_opt=NULL;
   options[i_opt].short_opt=0;
   options[i_opt].short_desc=NULL;
-  for(i=0;i<10;i++) options[i_opt].long_desc[i]=NULL;
+  for(i=0;i<max_long_desc;i++) options[i_opt].long_desc[i]=NULL;
   options[i_opt].yambo_string="unused";
   options[i_opt].bin="all";
   options[i_opt].int_var=0;

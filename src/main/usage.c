@@ -35,6 +35,9 @@ void usage(options_struct *options, struct tool_struct t, char *what, int n_opti
  char *pj   = running_project();
  char *tool = running_tool();
  char *libs = running_libraries();
+
+ int max_long_desc=20;
+
  /*
    Order
  */
@@ -134,7 +137,7 @@ void usage(options_struct *options, struct tool_struct t, char *what, int n_opti
   if (options[i_opt].long_desc[0]!= NULL)
   {
    fprintf(stderr," Description :%s",options[i_opt].short_desc);
-   for(i=0;i<10;i++) {
+   for(i=0;i<max_long_desc;i++) {
     if (options[i_opt].long_desc[i]== NULL) continue;
     fprintf(stderr,"\n              %s",options[i_opt].long_desc[i]);
    }

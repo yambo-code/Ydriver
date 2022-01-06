@@ -22,6 +22,7 @@
   MA 02111-1307, USA or visit http://www.gnu.org/copyleft/gpl.txt.
 
 */
+
 typedef struct tool_struct
 {
  char *editor;
@@ -59,7 +60,7 @@ typedef struct options_struct
  char  short_opt;
  char *long_opt;
  char *short_desc;
- char *long_desc[20];
+ char *long_desc[20]; /* max size equal to max_long_desc */
  char *bin;
  char *yambo_string;
  char *section;
