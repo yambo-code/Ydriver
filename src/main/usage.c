@@ -25,8 +25,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include <kind.h>
-#include <driver.h>
+#include <ykind.h>
+#include <ydriver.h>
 
 void usage(options_struct *options, struct tool_struct t, char *what, int n_options)
 {

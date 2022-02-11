@@ -25,9 +25,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <wrapper.h>
-#include <fortran_driver.h>
-#include <kind.h>
-#include <driver.h>
+#include <fortran_ydriver.h>
+#include <ykind.h>
+#include <ydriver.h>
 #if defined _yambo || defined _ypp || defined _a2y || defined _p2y
  #include <yambo_driver.h>
 #endif
@@ -68,7 +68,7 @@ void launcher(int argc, char *argv[],int np, int pid, struct yambo_seed_struct y
  ===========================================================================
  */
  yambo_err=F90_FUNC(main)(
-#include <fortran_arguments.h>
+#include <yfortran_arguments.h>
  );
 #endif
 #if defined _yambo
@@ -77,7 +77,7 @@ void launcher(int argc, char *argv[],int np, int pid, struct yambo_seed_struct y
  ===========================================================================
  */
  yambo_err=F90_FUNC(yambo)(
-#include <fortran_arguments.h>
+#include <yfortran_arguments.h>
  );
  if(yambo_err==2) exit(0); /* DB listing mode */
 #endif
@@ -87,7 +87,7 @@ void launcher(int argc, char *argv[],int np, int pid, struct yambo_seed_struct y
  ===========================================================================
  */
  F90_FUNC(ypp)(
-#include <fortran_arguments.h>
+#include <yfortran_arguments.h>
  );
 #endif
 #if defined _c2y
@@ -96,7 +96,7 @@ void launcher(int argc, char *argv[],int np, int pid, struct yambo_seed_struct y
  ===========================================================================
  */
  F90_FUNC(c2y)(
-#include <fortran_arguments.h>
+#include <yfortran_arguments.h>
  );
 #endif
 #if defined _a2y
@@ -105,7 +105,7 @@ void launcher(int argc, char *argv[],int np, int pid, struct yambo_seed_struct y
  ===========================================================================
  */
  F90_FUNC(a2y)(
-#include <fortran_arguments.h>
+#include <yfortran_arguments.h>
  );
 #endif
 #if defined _p2y
@@ -114,7 +114,7 @@ void launcher(int argc, char *argv[],int np, int pid, struct yambo_seed_struct y
  ===========================================================================
  */
  F90_FUNC(p2y)(
-#include <fortran_arguments.h>
+#include <yfortran_arguments.h>
  );
 #endif
 #if defined _e2y
@@ -123,7 +123,7 @@ void launcher(int argc, char *argv[],int np, int pid, struct yambo_seed_struct y
  ===========================================================================
  */
  F90_FUNC(e2y)(
-#include <fortran_arguments.h>
+#include <yfortran_arguments.h>
  );
 #endif
 #if defined _eph2y
@@ -132,7 +132,7 @@ void launcher(int argc, char *argv[],int np, int pid, struct yambo_seed_struct y
  ===========================================================================
  */
  F90_FUNC(eph2y)(
-#include <fortran_arguments.h>
+#include <yfortran_arguments.h>
  );
 #endif
  /* 

@@ -25,7 +25,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <kind.h>
+#include <ykind.h>
 
 void input_file(struct yambo_seed_struct y,struct tool_struct t,int *use_editor)
 {

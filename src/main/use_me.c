@@ -25,8 +25,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include <kind.h>
-#include <driver.h>
+#include <ykind.h>
+#include <ydriver.h>
 
 int use_me(struct options_struct options[], struct tool_struct t, int i_opt)
 {

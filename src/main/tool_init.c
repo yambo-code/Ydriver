@@ -24,12 +24,12 @@
 */
 
 #include <stdlib.h>
-#include <kind.h>
+#include <ykind.h>
 #include <string.h>
 #include <stdio.h>
 #include <wrapper.h>
 #include <tool.h>
-#include <driver.h>
+#include <ydriver.h>
 #if defined _yambo || defined _ypp
  #include <editor.h>
 #endif

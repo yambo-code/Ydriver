@@ -23,8 +23,8 @@
 */
 #include <stdio.h>
 #include <string.h>
-#include <kind.h>
-#include <driver.h>
+#include <ykind.h>
+#include <ydriver.h>
 
 void title(FILE *file_name,char *cmnt,  struct tool_struct t)
 {

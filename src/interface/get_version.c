@@ -25,8 +25,8 @@
 #include <string.h>
 #include <stdio.h>
 #include <wrapper.h>
-#include <kind.h>
-#include <driver.h>
+#include <ykind.h>
+#include <ydriver.h>
 #include <version.h>
 
 struct tool_struct versions( )

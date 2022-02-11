@@ -24,8 +24,8 @@
 */
 #include <stdio.h>
 #include <string.h>
-#include <kind.h>
-#include <driver.h>
+#include <ykind.h>
+#include <ydriver.h>
 #if defined _MPI 
  #include <mpi.h>
 #endif

@@ -23,14 +23,14 @@
 
 */
 #include <stdio.h>
-#include <kind.h>
+#include <ykind.h>
 #if defined _yambo
  #include <yambo_driver.h>
 #endif
 #if defined _example_driver
  #include <example_driver.h>
 #endif
-#include <driver.h>
+#include <ydriver.h>
 #include <stdlib.h>
 
 void options_maker(struct options_struct options[], int n_options)
