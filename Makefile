@@ -1,5 +1,5 @@
 #
-#     Copyright (C) 2000-2021 the YAMBO team
+#     Copyright (C) 2000-2022 the YAMBO team
 #           http://www.yambo-code.org
 #
 # Authors (see AUTHORS file for details): AM
@@ -50,12 +50,18 @@ arcreate: $(objs) $(objs_driver)
 link: $(objs_driver)
 	$(link)
 
+release: 
+	$(archive)
+
 clean:
 	$(clean)
 
 #
 # Functions
 #
+define archive
+  cd ../; tar --exclude defs.mk --exclude config.status --exclude version.h --exclude \.swp -czvf Ydriver.tar.gz driver/ AUTHORS  COPYING README.md 
+endef
 define link
   @(eval $(fc) $(fcflags) -o $(exe_target) $(objs_driver) $(lib_target) $(linclude) ) > /dev/null
 endef
