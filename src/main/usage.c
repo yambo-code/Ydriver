@@ -31,17 +31,14 @@
 void usage(options_struct *options, struct tool_struct t, char *what, int n_options)
 {
  int i_opt,i,i_o,n_blanks,n_strings;
-
  char *pj   = running_project();
  char *tool = running_tool();
  char *libs = running_libraries();
-
  int max_long_desc=20;
-
  /*
    Order
  */
- int n_orders=18,n_order_elements;
+ int n_orders=19,n_order_elements;
  char *order[]={
  "Help & version", /* 1 */
  "Input file & Directories", /* 2 */
@@ -60,7 +57,8 @@ void usage(options_struct *options, struct tool_struct t, char *what, int n_opti
  "SOC", /* 15 */
  "Utilites", /* 16 */
  "Wannier", /* 17 */
- "undef", /* 18 */
+ "Model Hamiltonians", /* 18 */
+ "undef", /* 19 */
  };
 
  if (strcmp(what,"help")==0) {
