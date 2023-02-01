@@ -77,6 +77,9 @@ struct tool_struct tool_init( )
 #if defined _QED
  pj="qed";
 #endif
+#if defined _SURF
+ pj="surf";
+#endif
 
  if (pj!=NULL) {
   t.bin = malloc(strlen(tool)+strlen(pj)+1);
