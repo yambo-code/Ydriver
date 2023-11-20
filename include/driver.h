@@ -19,3 +19,8 @@ char *running_project();
 char *running_libraries();
 char *runlevel(int *runid, int *id);
 void options_help(struct options_struct options[],int *i_opt);
+void options_control(struct options_struct options[],int *i_opt);
+void options_ypp(struct options_struct options[],int *i_opt);
+void options_yambo(struct options_struct options[],int *i_opt);
+void options_projects(struct options_struct options[],int *i_opt);
+void options_interfaces(struct options_struct options[],int *i_opt);
