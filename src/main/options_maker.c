@@ -3,12 +3,12 @@
  
   Copyright (C) 2020 The Yambo Team
  
-  Authors (see AUTHORS file for details): AM
+  Authors (see AUTHORS file for details): AM, AC
 
 */
 #include <stdio.h>
 #include <kind.h>
-#if defined _yambo || defined _ypp || defined _a2y || defined _p2y || defined _c2y || defined _e2y || defined _eph2y
+#if defined _yambo || defined _ypp || defined _a2y || defined _p2y || defined _c2y || defined _e2y 
  #include <yambo_driver.h>
 #endif
 #if defined _example_driver
@@ -44,8 +44,11 @@ void options_maker(struct options_struct options[], int n_options)
  /* 
   Control(s)
  */
-#if defined _yambo || defined _ypp || defined _a2y || defined _p2y || defined _c2y || defined _e2y || defined _eph2y
+#if defined _yambo || defined _ypp || defined _a2y || defined _p2y || defined _c2y || defined _e2y 
  options_control(options,&i_opt);
+#endif
+
+#if defined _yambo 
  /* 
   Yambo
  */
@@ -54,10 +57,16 @@ void options_maker(struct options_struct options[], int n_options)
   Projects
  */
  options_projects(options,&i_opt);
+#endif
+
+#if defined _ypp 
  /* 
   Ypp
  */
  options_ypp(options,&i_opt);
+#endif
+
+#if defined _a2y || defined _p2y || defined _c2y || defined _e2y 
  /* 
   Interfaces
  */
