@@ -8,7 +8,7 @@
 */
 #include <stdio.h>
 #include <kind.h>
-#if defined _yambo
+#if defined _yambo || defined _ypp || defined _a2y || defined _p2y || defined _c2y || defined _e2y || defined _eph2y
  #include <yambo_driver.h>
 #endif
 #if defined _example_driver
