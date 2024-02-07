@@ -46,6 +46,7 @@ typedef struct options_struct
  char *short_desc;
  char *long_desc[20]; /* max size equal to max_long_desc */
  char *bin;
+ char *no_bin;
  char *yambo_string;
  char *section;
  int   int_var;
