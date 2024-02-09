@@ -22,7 +22,7 @@ void usage(options_struct *options, struct tool_struct t, char *what, int n_opti
  /*
    Order
  */
- int n_orders=19,n_order_elements;
+ int n_orders=20,n_order_elements;
  char *order[]={
  "Help & version", /* 1 */
  "Input file & Directories", /* 2 */
@@ -33,16 +33,17 @@ void usage(options_struct *options, struct tool_struct t, char *what, int n_opti
  "Bethe-Salpeter Equation", /* 7 */
  "Hamiltonians & Potentials", /* 8 */
  "Real-Time", /* 9 */
- "Total Energy", /* 10 */
- "Interface", /* 11 */
- "Brillouin Zone", /* 12 */
- "Convertions", /* 13 */
- "Plots", /* 14 */
- "SOC", /* 15 */
- "Utilites", /* 16 */
- "Wannier", /* 17 */
- "Model Hamiltonians", /* 18 */
- "undef", /* 19 */
+ "Surface Spectroscopy", /* 10 */ 
+ "Total Energy", /* 11 */
+ "Interface", /* 12 */
+ "Brillouin Zone", /* 13 */
+ "Convertions", /* 14 */
+ "Plots", /* 15 */
+ "SOC", /* 16 */
+ "Utilites", /* 17 */
+ "Wannier", /* 18 */
+ "Model Hamiltonians", /* 19 */
+ "undef", /* 20 */
  };
 
  if (strcmp(what,"help")==0) {
