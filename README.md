@@ -1,25 +1,7 @@
-## Yambo Libraries
-
-This is the distribution of the Libraries needed during the compilation of the Yambo source (http://www.yambo-code.org).
-
-There are two kind of libraries:
-* internal: those are derived from the Yambo source itself. Some modular parts have been made independent and exported. 
-* external: those are standard libraries packed so to be usable by Yambo.
-
-You do not need to download the library files, unless you don't want to use them for you code.
-
-In any case the libraries will be automatically downloaded either at the git checkout time or when building the source (depending on the way yambo was installed).
-
-In case you are going to compile yambo on a machine that does not have access to the internet, you can first get all needed files in the proper place just entering the yambo source and running (option available since version 5.0 and without running the configure script)
-
-`make download`
-
-### Internal Libraries (Needed since yambo 5.0)
+## The Ydriver Yambo Library
 
 As part of the modularization of the Yambo code, one of the goals is to split the source into different blocks (or modules), and eventually promote them into libraries. So far we created, as an experimental library, the driver library.
-The source code of the library is not contained anymore in the main repo of the yambo code, but it has been moved in this dedicated repository:
-
-The driver releases can be found in the [releases](https://github.com/yambo-code/Ydriver/releases) page.
+The source code of the library is not contained anymore in the main repo of the yambo code, but it has been moved in this dedicated repository.
 
 ### Yambo
 Yambo doesn't stand for anything like "Yet Another Many-Body cOde", for instance.  Unless you really want it to. 
