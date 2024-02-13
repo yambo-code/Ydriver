@@ -84,16 +84,16 @@ void options_maker(struct options_struct options[], int n_options)
   if (i>=58 && i<=64) {continue;};
   if (i>=91 && i<=96) {continue;};
   if (i>=123) {continue;};
-  found=1;
+  found=-1;
   for(i_opt=0;i_opt<n_options;i_opt++){
    if (options[i_opt].short_opt == i ) { 
-    found=-i; 
+    found=1; 
     break; 
    }
   }
   if (found < 0) { 
    j++;
-   non_used_short_opt[j]=-found;
+   non_used_short_opt[j]=i;
   } 
  }
 /*

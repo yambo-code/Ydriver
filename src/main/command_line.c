@@ -113,12 +113,11 @@ struct yambo_seed_struct command_line(int argc, char *argv[], struct options_str
  };
  /* DEBUG 
  printf("before getopt %s\n",opt_string);
+ */
  long_options[n_active].name=0;
  long_options[n_active].has_arg=0;
  long_options[n_active].flag=0;
  long_options[n_active].val=0;
- /*
- */
  int long_index =0;
  while ((opt = getopt_long_only(argc, argv,opt_string,long_options, &long_index )) != -1) {
   /* No option valid */
@@ -130,7 +129,7 @@ struct yambo_seed_struct command_line(int argc, char *argv[], struct options_str
    if (use_me(opts,t,i_opt)==0) continue;
    if (opts[i_opt].short_opt==opt) {break;};
   }
-  /*
+  /* DEBUG
   if (opt > 0) {printf ("GETOPT ouput: %c %s",opts[i_opt].short_opt,opts[i_opt].long_opt);}
   if (optarg != NULL) {printf (" with arg %s\n", optarg);}
   if (optarg == NULL) {printf ("\n");}
