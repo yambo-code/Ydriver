@@ -82,7 +82,7 @@ void usage(options_struct *options, struct tool_struct t, char *what, int n_opti
     n_blanks=n_strings+2-options[i_opt].int_var*6-options[i_opt].float_var*7-options[i_opt].char_var*9;
     for(i=1;i<=n_blanks;i++) fprintf(stderr," "); 
     fprintf(stderr," :%s",options[i_opt].short_desc);
-    if (strcmp(options[i_opt].test_desc[0],"undef")!=0) fprintf(stderr," %s%s%s","(more with -h ",options[i_opt].long_opt,")");
+    if (strcmp(options[i_opt].long_desc[0],"undef")!=0) fprintf(stderr," %s%s%s","(more with -h ",options[i_opt].long_opt,")");
     fprintf(stderr,"\n");
    }
   }
@@ -117,12 +117,12 @@ void usage(options_struct *options, struct tool_struct t, char *what, int n_opti
    for(i=1;i<=options[i_opt].char_var;i++)  {fprintf(stderr," %s","<string>");};
    fprintf(stderr,"\n");
   }
-  if (strcmp(options[i_opt].test_desc[0],"undef")!=0)
+  if (strcmp(options[i_opt].long_desc[0],"undef")!=0)
   {
    fprintf(stderr," Description :%s",options[i_opt].short_desc);
    for(i=0;i<max_long_desc;i++) {
-    if (strcmp(options[i_opt].test_desc[i],"undef")==0) continue;
-    fprintf(stderr,"\n              %s",options[i_opt].test_desc[i]);
+    if (strcmp(options[i_opt].long_desc[i],"undef")==0) continue;
+    fprintf(stderr,"\n              %s",options[i_opt].long_desc[i]);
    }
   }
   fprintf(stderr,"\n\n");

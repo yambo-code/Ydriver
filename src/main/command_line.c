@@ -112,7 +112,6 @@ struct yambo_seed_struct command_line(int argc, char *argv[], struct options_str
   n_active++;
  };
  /* DEBUG 
- */
  printf("before getopt %s\n",opt_string);
  long_options[n_active].name=0;
  long_options[n_active].has_arg=0;
@@ -151,8 +150,8 @@ struct yambo_seed_struct command_line(int argc, char *argv[], struct options_str
     if (optarg != NULL) sprintf(dummy,"%c",optarg);
    }
    /* DEBUG 
-   */
    printf ("USAGE call %s \n",dummy);
+   */
    usage(opts,t,dummy,n_options);
    exit(0);
   }

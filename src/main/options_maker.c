@@ -21,13 +21,13 @@
 void options_maker(struct options_struct options[], int n_options)
 {
  int i_opt,i,j;
- int max_long_desc=20,non_used_short_opt[127],found;
+ int max_long_desc=20,non_used_short_opt[200],found;
 
  for(i_opt=0;i_opt<n_options;i_opt++) {
   options[i_opt].long_opt=NULL;
   options[i_opt].short_opt=0;
   options[i_opt].short_desc=NULL;
-  for(i=0;i<max_long_desc;i++) strcpy(options[i_opt].test_desc[i],"undef");
+  for(i=0;i<max_long_desc;i++) strcpy(options[i_opt].long_desc[i],"undef");
   options[i_opt].yambo_string="undef";
   options[i_opt].bin="all";
   options[i_opt].no_bin="none";
@@ -84,16 +84,16 @@ void options_maker(struct options_struct options[], int n_options)
   if (i>=58 && i<=64) {continue;};
   if (i>=91 && i<=96) {continue;};
   if (i>=123) {continue;};
-  found=0;
+  found=1;
   for(i_opt=0;i_opt<n_options;i_opt++){
    if (options[i_opt].short_opt == i ) { 
-    found=1; 
+    found=-i; 
     break; 
    }
   }
-  if (found == 0) { 
+  if (found < 0) { 
    j++;
-   non_used_short_opt[j]=i;
+   non_used_short_opt[j]=-found;
   } 
  }
 /*
