@@ -81,8 +81,11 @@ struct tool_struct tool_init( )
   t.pj=pj;
  }
  if (pj==NULL) pj=" ";
- sprintf(t.version_string,"%i.%i.%i Revision %i Hash %s",t.version,t.subversion,
-                                                         t.patchlevel,t.revision,t.hash);
+#if defined _example_driver
+ sprintf(t.version_string,"%i.%i.%i",t.version,t.subversion,t.patchlevel);
+#else
+ sprintf(t.version_string,"%i.%i.%i Revision %i Hash %s",t.version,t.subversion,t.patchlevel,t.revision,t.hash);
+#endif
  return(t);
 };
 

@@ -19,8 +19,10 @@ struct tool_struct versions( )
  t.version=YAMBO_VERSION;
  t.subversion=YAMBO_SUBVERSION;
  t.patchlevel=YAMBO_PATCHLEVEL;
+#if !defined _example_driver
  t.revision=YAMBO_REVISION;
  sprintf(t.hash,"%s",YAMBO_HASH);
+#endif
  return(t);
 }
 void C_FUNC(get_version, GET_VERSION)(int *version,int *subversion, int *patchlevel, int *revision, char *hash)

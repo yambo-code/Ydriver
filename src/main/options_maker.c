@@ -14,19 +14,20 @@
 #if defined _example_driver
  #include <example_driver.h>
 #endif
+#include <string.h>
 #include <driver.h>
 #include <stdlib.h>
 
 void options_maker(struct options_struct options[], int n_options)
 {
  int i_opt,i,j;
- int max_long_desc=20,non_used_short_opt[127]=0,found;
+ int max_long_desc=20,non_used_short_opt[127],found;
 
  for(i_opt=0;i_opt<n_options;i_opt++) {
   options[i_opt].long_opt=NULL;
   options[i_opt].short_opt=0;
   options[i_opt].short_desc=NULL;
-  for(i=0;i<max_long_desc;i++) options[i_opt].long_desc[i]=NULL;
+  for(i=0;i<max_long_desc;i++) strcpy(options[i_opt].test_desc[i],"undef");
   options[i_opt].yambo_string="undef";
   options[i_opt].bin="all";
   options[i_opt].no_bin="none";
@@ -78,6 +79,7 @@ void options_maker(struct options_struct options[], int n_options)
  */
  j=-1;
  for(i=1;i<=127;i++){
+  non_used_short_opt[i]=0;
   if (i<=47) {continue;};
   if (i>=58 && i<=64) {continue;};
   if (i>=91 && i<=96) {continue;};
@@ -103,6 +105,8 @@ void options_maker(struct options_struct options[], int n_options)
   if (options[i_opt].short_desc==NULL) break;
   j++;
   options[i_opt].short_opt=non_used_short_opt[j];
-  /* DEBUG printf("Short descripton %c assigned to long var %s\n",options[i_opt].short_opt,options[i_opt].long_opt);*/
+  /* DEBUG 
+  printf("Short descripton %c assigned to long var %s\n",options[i_opt].short_opt,options[i_opt].long_opt);
+  */
  } 
 }
