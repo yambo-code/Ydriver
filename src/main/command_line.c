@@ -42,7 +42,7 @@ The struct option structure has these fields:
 struct yambo_seed_struct command_line(int argc, char *argv[], struct options_struct opts[],  struct tool_struct t, int *use_editor, int *use_mpi, int n_options)
 {
  int n_active,n_vars,opt=0,i_opt;
- char opt_string[100],ch[3];
+ char opt_string[100],ch[3],dummy[50];
  /* */
  yambo_seed_struct y;
  /* 
@@ -57,42 +57,63 @@ struct yambo_seed_struct command_line(int argc, char *argv[], struct options_str
  y.com_dir=".";
  y.job="";
  strcpy(y.string,"");
- /* */
- n_active=0;
+ strcpy(opt_string,"");
+ /* 
+   Number of active options
+ */
+ n_active=-1;
  for(i_opt=0;i_opt<n_options;i_opt++) {
-  if (opts[i_opt].long_opt== NULL ) {break;};
+  if (opts[i_opt].short_opt==0) {break;}; 
   n_active++;
  }
- /* */
+ /* 
+   Long Options structure 
+ */
  struct option long_options[n_active+1];
  /* */
  n_active=0;
  for(i_opt=0;i_opt<n_options;i_opt++) {
   /**/
   if (use_me(opts,t,i_opt)==0) continue;
-  if (opts[i_opt].short_desc== NULL ) {break;};
+  if (opts[i_opt].short_opt==0) {break;};
   /**/
   long_options[n_active].name=opts[i_opt].long_opt;
   long_options[n_active].flag=0;
   long_options[n_active].val=opts[i_opt].short_opt;
+  /* DEBUG
+  printf ("CMD: INIT %i \n",i_opt);
+  printf ("CMD: INIT %s \n",opts[i_opt].short_desc);
+  printf ("CMD: (opts.short_opt) %c \n",opts[i_opt].short_opt);
+  */
+  sprintf(ch,"%c",opts[i_opt].short_opt);
+  strcat(opt_string,ch);
+  /* DEBUG  printf("CMD: opt_string %s\n",opt_string);*/ 
+  if (opts[i_opt].long_opt!=NULL) {
+   long_options[n_active].name=opts[i_opt].long_opt;
+   long_options[n_active].flag=0;
+  }
+  /* DEBUG printf ("CMD: (opts.short_desc) %s \n",opts[i_opt].short_desc);*/
+  /* DEBUG printf ("CMD: (opt_string (now)) %s \n",opt_string);*/
   /* VARS */
   n_vars=opts[i_opt].int_var+opts[i_opt].float_var+opts[i_opt].char_var;
-  sprintf(ch,"%c",opts[i_opt].short_opt);
   if (n_vars ==0) {
+   /* DEBUG printf ("CMD (n_vars=0)\n");*/
    long_options[n_active].has_arg=no_argument;
-   strcat(opt_string,ch);
-  }else if (opts[i_opt].optional_var==1){
-   long_options[n_active].has_arg=optional_argument;
-   strcat(opt_string,ch);
-   sprintf(ch,"%s","::");
-   strcat(opt_string,ch);
   }else{
-   ch[1]=':';
+   /* DEBUG printf ("CMD (n_vars/=0) \n");*/
    long_options[n_active].has_arg=required_argument;
-   strcat(opt_string,ch);
+   strcat(opt_string,":");
   };
+  if (opts[i_opt].optional_var==1){
+   /* DEBUG printf ("CMD (opt_var) \n");*/
+   long_options[n_active].has_arg=optional_argument;
+   strcat(opt_string,":");
+  }
   n_active++;
  };
+ /* DEBUG 
+ printf("before getopt %s\n",opt_string);
+ */
  long_options[n_active].name=0;
  long_options[n_active].has_arg=0;
  long_options[n_active].flag=0;
@@ -108,20 +129,29 @@ struct yambo_seed_struct command_line(int argc, char *argv[], struct options_str
    if (use_me(opts,t,i_opt)==0) continue;
    if (opts[i_opt].short_opt==opt) {break;};
   }
-  /*
-  if (optarg != NULL) {printf (" with arg %s", optarg);}
+  /* DEBUG
   if (opt > 0) {printf ("GETOPT ouput: %c %s",opts[i_opt].short_opt,opts[i_opt].long_opt);}
-  printf ("\n");
+  if (optarg != NULL) {printf (" with arg %s\n", optarg);}
+  if (optarg == NULL) {printf ("\n");}
   */
   /* help */
   if (strcmp(opts[i_opt].long_opt,"help")==0){
-   if (optarg == NULL && argv[optind] != NULL && argv[optind][0] != '-') {            // not an option
-    usage(opts,t,argv[optind],n_options);
+   /*
+   printf ("OPT %s \n",optarg);
+   printf ("OPT %i \n",optind);
+   printf ("OPT %s \n",argv[optind]);
+   */
+   if (optarg == NULL && argv[optind] != NULL && argv[optind][0] != '-') {       
+    strcpy(dummy,argv[optind]);
     ++optind;
-   } else {  // handle case of argument immediately after option
-    if (optarg == NULL) usage(opts,t,"help",n_options);
-    if (optarg != NULL) usage(opts,t,optarg,n_options);
+   }else{
+    if (optarg == NULL) sprintf(dummy,"%s","help");
+    if (optarg != NULL) sprintf(dummy,"%c",optarg);
    }
+   /* DEBUG 
+   printf ("USAGE call %s \n",dummy);
+   */
+   usage(opts,t,dummy,n_options);
    exit(0);
   }
   /* version */

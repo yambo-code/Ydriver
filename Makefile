@@ -84,6 +84,6 @@ endef
 	@mv $*.tmp_source $*$(f90suffix)
 	@($(fc) -c $(fcflags) $*$(f90suffix) $(linclude) -o $*.o) > /dev/null
 .c.o:
-	@(eval $(cc) $(cflags) $(dopts) $(linclude) -c $*.c -o $*.o) > /dev/null
+	(eval $(cc) $(cflags) $(dopts) $(linclude) -c $*.c -o $*.o) > /dev/null
 
 

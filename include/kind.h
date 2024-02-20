@@ -41,10 +41,10 @@ typedef struct yambo_seed_struct
 
 typedef struct options_struct
 {
- char  short_opt;
+ int  short_opt;
  char *long_opt;
  char *short_desc;
- char *long_desc[20]; /* max size equal to max_long_desc */
+ char long_desc[20][100];
  char *bin;
  char *no_bin;
  char *yambo_string;
