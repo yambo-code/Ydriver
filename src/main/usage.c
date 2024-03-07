@@ -88,7 +88,7 @@ void usage(options_struct *options, struct tool_struct t, char *what, int n_opti
   }
 
   fprintf(stderr,"\n");
-  fprintf(stderr,"%s\n\n"," YAMBO developers group (http://www.yambo-code.org)");
+  fprintf(stderr,"%s\n\n"," YAMBO developers group (http://www.yambo-code.eu)");
 
  }else if (strcmp(what,"version")==0) {
   if (strlen(pj)>0) {
@@ -126,6 +126,6 @@ void usage(options_struct *options, struct tool_struct t, char *what, int n_opti
    }
   }
   fprintf(stderr,"\n\n");
-  fprintf(stderr,"%s\n\n"," YAMBO developers group (http://www.yambo-code.org)");
+  fprintf(stderr,"%s\n\n"," YAMBO developers group (http://www.yambo-code.eu)");
  }
 };

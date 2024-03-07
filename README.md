@@ -8,9 +8,9 @@ Yambo doesn't stand for anything like "Yet Another Many-Body cOde", for instance
 
 For more information, see the general documentation on the web site http://www.yambo-code.org/
 
-Compiling:  http://www.yambo-code.org/download/compiling.php
-Installing: http://www.yambo-code.org/download/installing.php
-Getting started: http://www.yambo-code.org/doc/getting_started.php
+Compiling:  http://www.yambo-code.eu/download/compiling.php
+Installing: http://www.yambo-code.eu/download/installing.php
+Getting started: http://www.yambo-code.eu/doc/getting_started.php
 
 All the material included in this distribution is free software;
 you can redistribute it and/or modify it under the terms of the GNU
