@@ -1923,8 +1923,8 @@ ac_compiler_gnu=$ac_cv_c_compiler_gnu
 
 
 #
-YDRI_VERSION="1"
-YDRI_SUBVERSION="1"
+YDRI_VERSION="2"
+YDRI_SUBVERSION="0"
 YDRI_PATCHLEVEL="0"
 
 
