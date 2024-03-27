@@ -6,7 +6,7 @@ The source code of the library is not contained anymore in the main repo of the 
 ### Yambo
 Yambo doesn't stand for anything like "Yet Another Many-Body cOde", for instance.  Unless you really want it to. 
 
-For more information, see the general documentation on the web site http://www.yambo-code.org/
+For more information, see the general documentation on the web site http://www.yambo-code.eu/
 
 Compiling:  http://www.yambo-code.eu/download/compiling.php
 Installing: http://www.yambo-code.eu/download/installing.php
