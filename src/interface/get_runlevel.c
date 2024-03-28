@@ -21,6 +21,7 @@ char *runlevel(int *runid, int *id)
  if (*id == 1) {return options[*runid].yambo_string;}
  if (*id == 2) {return options[*runid].short_desc;}
  if (*id == 3) {return options[*runid].bin;}
+ if (*id == 4) {return options[*runid].no_bin;}
 }
 void C_FUNC(get_runlevel, GET_RUNLEVEL)(char *component, int *component_id, int *runlevel_id)
 {
