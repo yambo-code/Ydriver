@@ -1,25 +1,9 @@
 /*
-         Copyright (C) 2000-2022 the YAMBO team
-               http://www.yambo-code.org
+  License-Identifier: GPL
+ 
+  Copyright (C) 2020 The Yambo Team
  
   Authors (see AUTHORS file for details): AM
-  
-  This file is distributed under the terms of the GNU 
-  General Public License. You can redistribute it and/or 
-  modify it under the terms of the GNU General Public 
-  License as published by the Free Software Foundation; 
-  either version 2, or (at your option) any later version.
- 
-  This program is distributed in the hope that it will 
-  be useful, but WITHOUT ANY WARRANTY; without even the 
-  implied warranty of MERCHANTABILITY or FITNESS FOR A 
-  PARTICULAR PURPOSE.  See the GNU General Public License 
-  for more details.
- 
-  You should have received a copy of the GNU General Public 
-  License along with this program; if not, write to the Free 
-  Software Foundation, Inc., 59 Temple Place - Suite 330,Boston, 
-  MA 02111-1307, USA or visit http://www.gnu.org/copyleft/gpl.txt.
 */
 
 #include <stdlib.h>
@@ -41,7 +25,7 @@ void usage(options_struct *options, struct tool_struct t, char *what, int n_opti
  /*
    Order
  */
- int n_orders=18,n_order_elements;
+ int n_orders=19,n_order_elements;
  char *order[]={
  "Help & version", /* 1 */
  "Input file & Directories", /* 2 */
@@ -52,15 +36,16 @@ void usage(options_struct *options, struct tool_struct t, char *what, int n_opti
  "Bethe-Salpeter Equation", /* 7 */
  "Hamiltonians & Potentials", /* 8 */
  "Real-Time", /* 9 */
- "Total Energy", /* 10 */
- "Interface", /* 11 */
- "Brillouin Zone", /* 12 */
- "Convertions", /* 13 */
- "Plots", /* 14 */
- "SOC", /* 15 */
- "Utilites", /* 16 */
- "Wannier", /* 17 */
- "undef", /* 18 */
+ "Surface Spectroscopy", /* 10 */ 
+ "Total Energy", /* 11 */
+ "Interface", /* 12 */
+ "Brillouin Zone", /* 13 */
+ "Convertions", /* 14 */
+ "Plots", /* 15 */
+ "SOC", /* 16 */
+ "Utilites", /* 17 */
+ "Wannier", /* 18 */
+ "undef", /* 19 */
  };
 
  if (strcmp(what,"help")==0) {

@@ -1,30 +1,14 @@
 /*
-         Copyright (C) 2000-2022 the YAMBO team
-               http://www.yambo-code.org
+  License-Identifier: GPL
  
-  Authors (see AUTHORS file for details): AM
-  
-  This file is distributed under the terms of the GNU 
-  General Public License. You can redistribute it and/or 
-  modify it under the terms of the GNU General Public 
-  License as published by the Free Software Foundation; 
-  either version 2, or (at your option) any later version.
+  Copyright (C) 2020 The Yambo Team
  
-  This program is distributed in the hope that it will 
-  be useful, but WITHOUT ANY WARRANTY; without even the 
-  implied warranty of MERCHANTABILITY or FITNESS FOR A 
-  PARTICULAR PURPOSE.  See the GNU General Public License 
-  for more details.
- 
-  You should have received a copy of the GNU General Public 
-  License along with this program; if not, write to the Free 
-  Software Foundation, Inc., 59 Temple Place - Suite 330,Boston, 
-  MA 02111-1307, USA or visit http://www.gnu.org/copyleft/gpl.txt.
+  Authors (see AUTHORS file for details): AM, AC
 
 */
 #include <stdio.h>
 #include <ykind.h>
-#if defined _yambo
+#if defined _yambo || defined _ypp || defined _a2y || defined _p2y || defined _c2y || defined _e2y 
  #include <yambo_driver.h>
 #endif
 #if defined _example_driver
@@ -60,8 +44,11 @@ void options_maker(struct options_struct options[], int n_options)
  /* 
   Control(s)
  */
-#if defined _yambo || defined _ypp || defined _a2y || defined _p2y || defined _c2y || defined _e2y || defined _eph2y
+#if defined _yambo || defined _ypp || defined _a2y || defined _p2y || defined _c2y || defined _e2y 
  options_control(options,&i_opt);
+#endif
+
+#if defined _yambo 
  /* 
   Yambo
  */
@@ -70,10 +57,16 @@ void options_maker(struct options_struct options[], int n_options)
   Projects
  */
  options_projects(options,&i_opt);
+#endif
+
+#if defined _ypp 
  /* 
   Ypp
  */
  options_ypp(options,&i_opt);
+#endif
+
+#if defined _a2y || defined _p2y || defined _c2y || defined _e2y 
  /* 
   Interfaces
  */
