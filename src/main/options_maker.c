@@ -22,12 +22,15 @@ void options_maker(struct options_struct options[], int n_options)
 {
  int i_opt,i,j;
  int max_long_desc=20,non_used_short_opt[200],found;
+ int max_long_string=150;
+
 
  for(i_opt=0;i_opt<n_options;i_opt++) {
   options[i_opt].long_opt=NULL;
   options[i_opt].short_opt=0;
   options[i_opt].short_desc=NULL;
-  for(i=0;i<max_long_desc;i++) strcpy(options[i_opt].long_desc[i],"undef");
+/*  for(i=0;i<max_long_desc;i++) strcpy(options[i_opt].long_desc[i],"undef"); */
+  for(i=0;i<max_long_desc;i++) options[i_opt].long_desc[i]=malloc( max_long_string );
   options[i_opt].yambo_string="undef";
   options[i_opt].bin="all";
   options[i_opt].no_bin="none";
