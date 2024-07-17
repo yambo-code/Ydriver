@@ -75,7 +75,7 @@ struct tool_struct tool_init( )
   strcat(t.bin,"_");
   strcat(t.bin,t.pj);
  }else{
-  t.bin = malloc(strlen(tool));
+  t.bin = malloc(strlen(tool) + 1);
   strcpy(t.bin,t.tool);
   pj="";
   t.pj=pj;
