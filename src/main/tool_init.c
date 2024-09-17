@@ -69,7 +69,7 @@ struct tool_struct tool_init( )
 #endif
 
  if (pj!=NULL) {
-  t.bin = malloc(strlen(tool)+strlen(pj)+1);
+  t.bin = malloc(strlen(tool) + strlen(pj) + 2);
   strcpy(t.bin,t.tool);
   t.pj=pj;
   strcat(t.bin,"_");
