@@ -15,36 +15,34 @@
 void usage(options_struct *options, struct tool_struct t, char *what, int n_options)
 {
  int i_opt,i,i_o,n_blanks,n_strings;
-
  char *pj   = running_project();
  char *tool = running_tool();
  char *libs = running_libraries();
-
  int max_long_desc=20;
-
  /*
    Order
  */
  int n_orders=19,n_order_elements;
  char *order[]={
- "Help & version", /* 1 */
- "Input file & Directories", /* 2 */
- "Parallel Control", /* 3 */
- "Initializations", /* 4 */
- "Response Functions", /* 5 */
- "Self-Energy", /* 6 */
- "Bethe-Salpeter Equation", /* 7 */
- "Hamiltonians & Potentials", /* 8 */
- "Real-Time", /* 9 */
- "Surface Spectroscopy", /* 10 */ 
- "Total Energy", /* 11 */
- "Interface", /* 12 */
- "Brillouin Zone", /* 13 */
- "Convertions", /* 14 */
- "Plots", /* 15 */
- "SOC", /* 16 */
- "Utilites", /* 17 */
- "Wannier", /* 18 */
+ "Help & version", /* 0 */
+ "Input file & Directories", /* 1 */
+ "Parallel Control", /* 2 */
+ "Initializations", /* 3 */
+ "Response Functions", /* 4 */
+ "Self-Energy", /* 5 */
+ "Bethe-Salpeter Equation", /* 6 */
+ "Hamiltonians & Potentials", /* 7 */
+ "Real-Time", /* 8 */
+ "Surface Spectroscopy", /* 9 */ 
+ "Total Energy", /* 10 */
+ "Interface", /* 11 */
+ "Brillouin Zone", /* 12 */
+ "Convertions", /* 13 */
+ "Plots", /* 14 */
+ "SOC", /* 15 */
+ "Utilites", /* 16 */
+ "Wannier", /* 17 */
+ "Model Hamiltonians", /* 18 */
  "undef", /* 19 */
  };
 
@@ -84,13 +82,13 @@ void usage(options_struct *options, struct tool_struct t, char *what, int n_opti
     n_blanks=n_strings+2-options[i_opt].int_var*6-options[i_opt].float_var*7-options[i_opt].char_var*9;
     for(i=1;i<=n_blanks;i++) fprintf(stderr," "); 
     fprintf(stderr," :%s",options[i_opt].short_desc);
-    if (options[i_opt].long_desc[0]!= NULL) fprintf(stderr," %s%s%s","(more with -h ",options[i_opt].long_opt,")");
+    if (strcmp(options[i_opt].long_desc[0],"undef")!=0) fprintf(stderr," %s%s%s","(more with -h ",options[i_opt].long_opt,")");
     fprintf(stderr,"\n");
    }
   }
 
   fprintf(stderr,"\n");
-  fprintf(stderr,"%s\n\n"," YAMBO developers group (http://www.yambo-code.org)");
+  fprintf(stderr,"%s\n\n"," YAMBO developers group (http://www.yambo-code.eu)");
 
  }else if (strcmp(what,"version")==0) {
   if (strlen(pj)>0) {
@@ -119,15 +117,15 @@ void usage(options_struct *options, struct tool_struct t, char *what, int n_opti
    for(i=1;i<=options[i_opt].char_var;i++)  {fprintf(stderr," %s","<string>");};
    fprintf(stderr,"\n");
   }
-  if (options[i_opt].long_desc[0]!= NULL)
+  if (strcmp(options[i_opt].long_desc[0],"undef")!=0)
   {
    fprintf(stderr," Description :%s",options[i_opt].short_desc);
    for(i=0;i<max_long_desc;i++) {
-    if (options[i_opt].long_desc[i]== NULL) continue;
+    if (strcmp(options[i_opt].long_desc[i],"undef")==0) continue;
     fprintf(stderr,"\n              %s",options[i_opt].long_desc[i]);
    }
   }
   fprintf(stderr,"\n\n");
-  fprintf(stderr,"%s\n\n"," YAMBO developers group (http://www.yambo-code.org)");
+  fprintf(stderr,"%s\n\n"," YAMBO developers group (http://www.yambo-code.eu)");
  }
 };

@@ -8,7 +8,7 @@
 *.so
 *.mod
 modfiles.list
-*.dep
+modulesdep.list
 *.f90
 *.s
 *.sw*
