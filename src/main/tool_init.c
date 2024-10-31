@@ -55,8 +55,8 @@ struct tool_struct tool_init( )
 #if defined _YPP_NL || defined _NL
  pj="nl";
 #endif
-#if defined _YPP_DF || defined _DF
- pj="df";
+#if defined _YPP_FL || defined _FL
+ pj="fl";
 #endif
 #if defined _QED
  pj="qed";
@@ -64,22 +64,28 @@ struct tool_struct tool_init( )
 #if defined _SURF
  pj="surf";
 #endif
+#if defined _MODELS
+ pj="models";
+#endif
 
  if (pj!=NULL) {
-  t.bin = malloc(strlen(tool)+strlen(pj)+1);
+  t.bin = malloc(strlen(tool) + strlen(pj) + 2);
   strcpy(t.bin,t.tool);
   t.pj=pj;
   strcat(t.bin,"_");
   strcat(t.bin,t.pj);
  }else{
-  t.bin = malloc(strlen(tool));
+  t.bin = malloc(strlen(tool) + 1);
   strcpy(t.bin,t.tool);
   pj="";
   t.pj=pj;
  }
  if (pj==NULL) pj=" ";
- sprintf(t.version_string,"%i.%i.%i Revision %i Hash %s",t.version,t.subversion,
-                                                         t.patchlevel,t.revision,t.hash);
+#if defined _example_driver
+ sprintf(t.version_string,"%i.%i.%i",t.version,t.subversion,t.patchlevel);
+#else
+ sprintf(t.version_string,"%i.%i.%i Revision %i Hash %s",t.version,t.subversion,t.patchlevel,t.revision,t.hash);
+#endif
  return(t);
 };
 
