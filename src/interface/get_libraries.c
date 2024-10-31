@@ -31,6 +31,10 @@ char *running_libraries()
  i_str++;
  strcpy(strings[i_str], "GPU");
 #endif
+#if defined _CUDA
+ i_str++;
+ strcpy(strings[i_str], "CUDA");
+#endif
 #if defined _CUDAF
  i_str++;
  strcpy(strings[i_str], "CUDAF");
