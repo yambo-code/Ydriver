@@ -27,9 +27,21 @@ char *running_libraries()
  i_str++;
  strcpy(strings[i_str], "OpenMP");
 #endif
+#if defined _GPU
+ i_str++;
+ strcpy(strings[i_str], "GPU");
+#endif
 #if defined _CUDA
  i_str++;
  strcpy(strings[i_str], "CUDA");
+#endif
+#if defined _CUDAF
+ i_str++;
+ strcpy(strings[i_str], "CUDAF");
+#endif
+#if defined _OPENACC
+ i_str++;
+ strcpy(strings[i_str], "OPENACC");
 #endif
 #if defined _SCALAPACK
  i_str++;
