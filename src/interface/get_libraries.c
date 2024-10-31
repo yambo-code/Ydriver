@@ -41,7 +41,11 @@ char *running_libraries()
 #endif
 #if defined _OPENACC
  i_str++;
- strcpy(strings[i_str], "OPENACC");
+ strcpy(strings[i_str], "OpenACC");
+#endif
+#if defined _OPENMP_GPU
+ i_str++;
+ strcpy(strings[i_str], "OpenMP-GPU");
 #endif
 #if defined _SCALAPACK
  i_str++;
